@@ -234,7 +234,7 @@ class MemoryEfficientAttnBlock(nn.Module):
                                         kernel_size=1,
                                         stride=1,
                                         padding=0)
-        self.attention_op: Optional[Any] = None
+        self.attention_op: Optional[Any] = xformers.ops.MemoryEfficientAttentionCutlassOp
 
     def forward(self, x):
         h_ = x
